@@ -1,0 +1,9 @@
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    pp = pull --prune
+    st = status
+[user]
+	email = travis.taylor@patternlabs.ai
+	name = Travis-Taylor
