@@ -2,8 +2,11 @@
     br = branch
     ci = commit
     co = checkout
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     pp = pull --prune
     st = status
 [user]
 	email = travis.taylor@patternlabs.ai
 	name = Travis-Taylor
+[init]
+	defaultBranch = main
