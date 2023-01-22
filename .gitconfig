@@ -1,12 +1,16 @@
 [alias]
-    br = branch
-    ci = commit
-    co = checkout
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    pp = pull --prune
-    st = status
+    br      = branch
+    ci      = commit
+    co      = checkout
+    cpick   = cherry-pick
+    hist    = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    pp      = pull --prune
+    st      = status
+
+[core]
+    editor  = vim
 [user]
-	email = travis.taylor@patternlabs.ai
-	name = Travis-Taylor
+	email   = stygian.stevedore@gmail.com
+	name    = Travis-Taylor
 [init]
 	defaultBranch = main

@@ -5,6 +5,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+set wildmenu
+set wildmode=list:longest
+
 filetype plugin indent on
 execute pathogen#infect()
 " Git blame plugin: https://github.com/zivyangll/git-blame.vim
