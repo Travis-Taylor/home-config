@@ -1,5 +1,5 @@
 # create this file for computer-specific aliases
-source ~/.this_pc_aliases
+[[ -f ~/.this_pc_aliases ]] && source ~/.this_pc_aliases
 
 activenv() {
     name=${1:-.venv}
