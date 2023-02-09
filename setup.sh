@@ -25,7 +25,7 @@ if [[ ! -d ~/.vim/bundle/git-blame.vim ]]; then
 fi
 
 # Link top-level config files into $HOME
-configs=($(find . -maxdepth 1 -type f ! -name README.md ! -name setup.sh))
+configs=($(find home -maxdepth 1 -type f ))
 for f in "${configs[@]}"; do
     link_config "$f"
 done
