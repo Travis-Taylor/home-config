@@ -58,8 +58,18 @@ done
 
 debs=(terminator ack vim)
 for deb in "${debs[@]}"; do
-    if ! dpkg-query --show --showformat='${db:Status-Status}\n' "$deb" | grep -q "^!(not-)installed"; then
+    if ! dpkg-query --show --showformat='${db:Status-Status}\n' "$deb" | grep -q "^installed"; then
         sudo apt install "$deb"
     fi
 done
 
+code_configs=($(find "$SCRIPT_DIR/vscode" -type f))
+for config in "${code_configs[@]}"; do
+    filename=$(basename $config)
+    if [[ ! -f "$HOME/.config/Code/User/$filename" ]]; then
+        sudo ln -s "$config" "$HOME/.config/Code/User"
+    else
+        echo "Existing config $filename found in ~/.config/Code/User, refusing to replace"
+    fi
+
+done
