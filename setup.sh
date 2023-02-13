@@ -63,6 +63,13 @@ for deb in "${debs[@]}"; do
     fi
 done
 
+# Install AWS CLI
+if ! command -v aws > /dev/null; then
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "$HOME/Downloads/awscliv2.zip"
+    unzip ~/Downloads/awscliv2.zip -d ~/Downloads
+    sudo ~/Downloads/aws/install
+fi
+
 code_configs=($(find "$SCRIPT_DIR/vscode" -type f))
 for config in "${code_configs[@]}"; do
     filename=$(basename $config)
@@ -71,5 +78,4 @@ for config in "${code_configs[@]}"; do
     else
         echo "Existing config $filename found in ~/.config/Code/User, refusing to replace"
     fi
-
 done
