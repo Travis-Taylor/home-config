@@ -30,6 +30,7 @@
     "search.useParentIgnoreFiles": true,
     "search.useGlobalIgnoreFiles": true,
     "[python]": {
-        "editor.formatOnType": true
-    }
+        "editor.formatOnSave": true
+    },
+    "python.linting.flake8Enabled": true
 }
