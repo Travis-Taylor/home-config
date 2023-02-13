@@ -1,12 +1,15 @@
 #! /bin/bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 function link_config {
     # Link in config file to ~ dir if it doesn't already exist
-    if [[ -f ~/"$1" ]]; then
-        echo "$1 already found in home dir, refusing to replace"
+    filename=$(basename "$1")
+    if [[ -f ~/"$filename" ]]; then
+        echo "$filename already found in home dir, refusing to replace"
     else
-        echo "Symlinking $1 into home dir"
-        ln -s $(pwd)/"$1" ~
+        echo "Symlinking $filename into home dir"
+        ln -s "$1" ~
     fi
 }
 
@@ -25,7 +28,7 @@ if [[ ! -d ~/.vim/bundle/git-blame.vim ]]; then
 fi
 
 # Link top-level config files into $HOME
-configs=($(find home -maxdepth 1 -type f ))
+configs=($(find "${SCRIPT_DIR}"/home -maxdepth 1 -type f ))
 for f in "${configs[@]}"; do
     link_config "$f"
 done
@@ -34,7 +37,29 @@ done
 if [[ ! -f /etc/modprobe.d/disable-nouveau.conf ]]; then
     read -p "Disable nouveau module? (y/n)" confirm
     if [[ "$confirm" =~ ^[yY]+ ]]; then
-        sudo ln -s $(pwd)/etc/modprobe.d/disable-nouveau.conf /etc/modprobe.d
+        sudo ln -s "${SCRIPT_DIR}"/etc/modprobe.d/disable-nouveau.conf /etc/modprobe.d
         sudo update-initramfs -u
     fi
 fi
+
+if [[ ! -f "$HOME/.config/terminator/config" ]]; then
+    mkdir -p $HOME/.config/terminator
+    sudo ln -s "${SCRIPT_DIR}"/terminator/config $HOME/.config/terminator
+
+fi
+
+# Install some software
+snapps=(code slack spotify vlc)
+for snapp in "${snapps[@]}"; do
+    if [[ -z $(snap list | grep "^$snapp\s") ]]; then
+        sudo snap install "$snapp"
+    fi
+done
+
+debs=(terminator ack vim)
+for deb in "${debs[@]}"; do
+    if ! dpkg-query --show --showformat='${db:Status-Status}\n' "$deb" | grep -q "^!(not-)installed"; then
+        sudo apt install "$deb"
+    fi
+done
+
