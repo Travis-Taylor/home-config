@@ -59,7 +59,7 @@ done
 debs=(terminator ack vim)
 for deb in "${debs[@]}"; do
     if ! dpkg-query --show --showformat='${db:Status-Status}\n' "$deb" | grep -q "^installed"; then
-        sudo apt install "$deb"
+        sudo apt install -y "$deb"
     fi
 done
 
