@@ -3,6 +3,8 @@
     ci      = commit
     co      = checkout
     cpick   = cherry-pick
+    diffn   = diff --name-only
+    diffss  = diff --shortstat
     hist    = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     pp      = pull --prune
     st      = status
