@@ -15,3 +15,4 @@ activenv() {
 }
 alias cdc="cd ~/code"
 alias logout="gnome-session-quit"
+export EDITOR=vim

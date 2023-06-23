@@ -18,3 +18,9 @@
 	defaultBranch = main
 [core]
     editor = vim
+    excludesfile = /home/ttaylor/.gitignore
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
