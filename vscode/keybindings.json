@@ -4,5 +4,16 @@
         "key": "enter",
         "command": "-acceptSelectedSuggestion",
         "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
-    }
+    },
+    {
+      "key": "ctrl+/",
+      "command": "runCommands",
+      "args": {
+        "commands": [
+          "editor.action.commentLine",
+          "cursorDown"
+        ]
+      },
+      "when": "editorTextFocus"
+    },
 ]
