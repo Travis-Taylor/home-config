@@ -16,3 +16,24 @@ activenv() {
 alias cdc="cd ~/code"
 alias logout="gnome-session-quit"
 export EDITOR=vim
+# Run command N times (default 20)
+gimme_20() {
+    COUNT=20
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -n)
+                shift
+                COUNT="$1" 
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    cmd="$@"
+    for ii in $(seq 0 $COUNT); do
+        echo "Run $ii"
+        $cmd
+    done
+}
