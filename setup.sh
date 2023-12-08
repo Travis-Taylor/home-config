@@ -56,7 +56,7 @@ for snapp in "${snapps[@]}"; do
     fi
 done
 
-debs=(terminator ack vim git git-lfs)
+debs=(terminator ack vim git git-lfs inkscape)
 for deb in "${debs[@]}"; do
     if ! dpkg-query --show --showformat='${db:Status-Status}\n' "$deb" | grep -q "^installed"; then
         sudo apt install -y "$deb"
