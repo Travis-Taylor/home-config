@@ -37,3 +37,4 @@ gimme_20() {
         $cmd
     done
 }
+export HISTTIMEFORMAT="%F %T: "
