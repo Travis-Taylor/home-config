@@ -14,6 +14,7 @@ activenv() {
     done
 }
 alias cdc="cd ~/code"
+alias disk_check="du -d 1 -c -h"
 alias logout="gnome-session-quit"
 export EDITOR=vim
 # Run command N times (default 20)
