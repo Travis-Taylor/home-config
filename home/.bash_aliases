@@ -14,7 +14,10 @@ activenv() {
     done
 }
 alias cdc="cd ~/code"
-alias disk_check="du -d 1 -c -h"
+disk_check() {
+  target_dir="${1:-$(pwd)}"
+  du -d 1 -c -h "${target_dir}" | sort -h
+}
 alias logout="gnome-session-quit"
 export EDITOR=vim
 # Run command N times (default 20)
