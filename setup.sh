@@ -71,11 +71,13 @@ if ! command -v aws > /dev/null; then
 fi
 
 code_configs=($(find "$SCRIPT_DIR/vscode" -type f))
+code_user_dir="$HOME/.config/Code/User"
+mkdir -p $code_user_dir
 for config in "${code_configs[@]}"; do
     filename=$(basename $config)
-    if [[ ! -f "$HOME/.config/Code/User/$filename" ]]; then
-        sudo ln -s "$config" "$HOME/.config/Code/User"
+    if [[ ! -f "$code_user_dir/$filename" ]]; then
+        sudo ln -s "$config" $code_user_dir
     else
-        echo "Existing config $filename found in ~/.config/Code/User, refusing to replace"
+        echo "Existing config $filename found in $code_user_dir, refusing to replace"
     fi
 done

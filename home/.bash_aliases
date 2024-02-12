@@ -42,3 +42,21 @@ gimme_20() {
     done
 }
 export HISTTIMEFORMAT="%F %T: "
+send_key() {
+  dest_host="$1"
+  if [[ -z $dest_host ]]; then
+    echo "Must specify a destination to send SSH key to"
+    return 1
+  fi
+  key_files=($(find ~/.ssh -name "id_*.pub"))
+  if [[ ${#key_files[@]} -lt 1 ]]; then
+    echo "No key files found in $HOME/.ssh"
+    return 1
+  fi
+  key_name=${key_files[0]}
+  if [[ ${#key_files[@]} -gt 1 ]]; then
+    echo "Found more than 1 key file in $HOME/.ssh; using $key_name"
+  fi
+  key=$(cat $key_name)
+  ssh $dest_host "echo $key >> ~/.ssh/authorized_keys"
+}
