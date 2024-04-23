@@ -13,3 +13,5 @@ execute pathogen#infect()
 " Git blame plugin: https://github.com/zivyangll/git-blame.vim
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 nnoremap <Leader>p "0p
+" Remap \p to paste just yank buffer (not delete buffer)
+nnoremap <leader>p \"0p
