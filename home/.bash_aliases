@@ -60,3 +60,14 @@ send_key() {
   key=$(cat $key_name)
   ssh $dest_host "echo $key >> ~/.ssh/authorized_keys"
 }
+pull_and_recommit() {
+    # MUST RUN IN PROJECT ROOT DIR
+    commit_msg=$(git log -1 --pretty=%B)
+    to_commit=($(git diffn HEAD~))
+    git reset HEAD~
+    git stash
+    git pp
+    git stash pop
+    git add ${to_commit[@]}
+    git ci -m "$commit_msg"
+}
