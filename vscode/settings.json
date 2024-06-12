@@ -14,10 +14,13 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
+        "source.fixAll.eslint": "explicit"
     },
     "editor.formatOnSave": true,
-    "editor.rulers": [80],
+    "editor.rulers": [
+        80,
+        88
+    ],
     "editor.bracketPairColorization.enabled": true,
     "eslint.format.enable": true,
     "eslint.validate": [
@@ -33,19 +36,24 @@
     ],
     "eslint.packageManager": "yarn",
     "eslint.lintTask.enable": true,
-    "eslint.run": "onSave",
+    "eslint.run": "never",
     "python.formatting.provider": "black",
     "search.useIgnoreFiles": true,
     "search.useParentIgnoreFiles": true,
     "search.useGlobalIgnoreFiles": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "[cpp]": {
-        "editor.defaultFormatter": "mjohns.clang-format"
+        "editor.defaultFormatter": "xaver.clang-format"
     },
     "cpplint.cpplintPath": "/apollo/bin/cpplint",
     "clang-format.executable": "/usr/bin/clang-format",
     "go.buildOnSave": "off",
     "python.linting.flake8CategorySeverity.E": "Hint",
     "python.linting.flake8CategorySeverity.F": "Hint",
-    "python.linting.flake8CategorySeverity.W": "Hint"
+    "python.linting.flake8CategorySeverity.W": "Hint",
+    "remote.autoForwardPortsSource": "hybrid",
+    "extensions.ignoreRecommendations": true,
+    "bazel.queriesShareServer": false,
+    "cmake.showOptionsMovedNotification": false,
+    "update.showReleaseNotes": false
 }
