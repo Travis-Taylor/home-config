@@ -66,10 +66,10 @@ pull_and_recommit() {
     cd $root_dir
     commit_msg=$(git log -1 --pretty=%B)
     to_commit=($(git diffn HEAD~))
-    git reset HEAD~
+    git reset HEAD~ > /dev/null
     git stash
     git pp
-    git stash pop
+    git stash pop > /dev/null
     git add ${to_commit[@]}
     git ci -m "$commit_msg"
     cd -
