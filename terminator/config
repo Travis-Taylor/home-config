@@ -12,7 +12,6 @@
   switch_to_tab_10 = <Alt>0
 [profiles]
   [[default]]
-    cursor_color = "#aaaaaa"
     scrollback_infinite = True
 [layouts]
   [[default]]

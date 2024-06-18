@@ -61,7 +61,9 @@ send_key() {
   ssh $dest_host "echo $key >> ~/.ssh/authorized_keys"
 }
 pull_and_recommit() {
-    # MUST RUN IN PROJECT ROOT DIR
+    # Run in project root dir
+    root_dir=$(git rev-parse --show-toplevel)
+    cd $root_dir
     commit_msg=$(git log -1 --pretty=%B)
     to_commit=($(git diffn HEAD~))
     git reset HEAD~
@@ -70,4 +72,5 @@ pull_and_recommit() {
     git stash pop
     git add ${to_commit[@]}
     git ci -m "$commit_msg"
+    cd -
 }

@@ -34,9 +34,7 @@
             "mode": "auto"
         }
     ],
-    "eslint.packageManager": "yarn",
     "eslint.lintTask.enable": true,
-    "eslint.run": "never",
     "python.formatting.provider": "black",
     "search.useIgnoreFiles": true,
     "search.useParentIgnoreFiles": true,
