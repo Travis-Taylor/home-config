@@ -35,6 +35,7 @@
         }
     ],
     "eslint.lintTask.enable": true,
+    "eslint.run": "onSave",
     "python.formatting.provider": "black",
     "search.useIgnoreFiles": true,
     "search.useParentIgnoreFiles": true,
@@ -53,5 +54,8 @@
     "extensions.ignoreRecommendations": true,
     "bazel.queriesShareServer": false,
     "cmake.showOptionsMovedNotification": false,
-    "update.showReleaseNotes": false
+    "update.showReleaseNotes": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
 }
