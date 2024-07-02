@@ -13,7 +13,13 @@ function link_config {
     fi
 }
 # Install some software
-snapps=(code slack spotify vlc)
+classics=(code)
+for snapp in "${classics[@]}"; do
+    if [[ -z $(snap list | grep "^$snapp\s") ]]; then
+        sudo snap install "$snapp" --classic
+    fi
+done
+snapps=(slack spotify vlc)
 for snapp in "${snapps[@]}"; do
     if [[ -z $(snap list | grep "^$snapp\s") ]]; then
         sudo snap install "$snapp"
