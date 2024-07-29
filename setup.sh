@@ -81,6 +81,7 @@ fi
 
 code_configs=($(find "$SCRIPT_DIR/vscode" -type f))
 code_user_dir="$HOME/.config/Code/User"
+# TODO install plugins? https://stackoverflow.com/a/34339780
 mkdir -p $code_user_dir
 for config in "${code_configs[@]}"; do
     filename=$(basename $config)
