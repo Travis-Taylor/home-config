@@ -56,3 +56,4 @@ pull_and_recommit() {
     git ci -m "$commit_msg"
     cd -
 }
+# TODO Fix sound input/output on startup
