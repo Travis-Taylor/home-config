@@ -60,5 +60,8 @@
     },
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[proto]": {
+        "editor.formatOnSave": false
     }
 }

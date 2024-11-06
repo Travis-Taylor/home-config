@@ -47,12 +47,15 @@ pull_and_recommit() {
     root_dir=$(git rev-parse --show-toplevel)
     cd $root_dir
     commit_msg=$(git log -1 --pretty=%B)
-    to_commit=($(git diffn HEAD~))
+    # Read in diff files by newline - https://unix.stackexchange.com/a/628543/280757
+    IFS=$'\n' read -d '' -r -a to_commit <<< $(git diff --name-only HEAD~)
     git reset HEAD~ > /dev/null
     git stash
     git pp
     git stash pop > /dev/null
-    git add ${to_commit[@]}
+    for file in "${to_commit[@]}"; do
+      git add "${file}"
+    done
     git ci -m "$commit_msg"
     cd -
 }

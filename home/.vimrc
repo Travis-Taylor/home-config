@@ -14,7 +14,10 @@ filetype plugin indent on    " required
 
 syntax on
 colorscheme desert
+" Line numbers
+set number
 
+" Tab spacing & space char interpolation
 set expandtab
 set tabstop=2
 set shiftwidth=2
