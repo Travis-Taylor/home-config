@@ -8,6 +8,7 @@
     hist    = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     pp      = pull --prune
     st      = status
+    gone = "!git fetch -p && git for-each-ref --format '%(refname:short) %(HEAD) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r -d'\\n' git branch -D"
 
 [core]
     editor  = vim
