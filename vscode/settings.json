@@ -63,5 +63,8 @@
     },
     "[proto]": {
         "editor.formatOnSave": false
+    },
+    "files.associations": {
+        "*.xodr": "xml"
     }
 }
