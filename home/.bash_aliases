@@ -59,4 +59,5 @@ pull_and_recommit() {
     git ci -m "$commit_msg"
     cd -
 }
+export PATH="$HOME/.local/bin/:$PATH"
 # TODO Fix sound input/output on startup

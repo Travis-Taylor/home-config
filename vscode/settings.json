@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Monokai",
     "vim.handleKeys": {
         "<C-b>": false,
         "<C-d>": true,
@@ -66,5 +65,6 @@
     },
     "files.associations": {
         "*.xodr": "xml"
-    }
+    },
+    "workbench.colorTheme": "Monokai"
 }
