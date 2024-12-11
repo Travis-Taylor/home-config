@@ -48,7 +48,7 @@ pull_and_recommit() {
     cd $root_dir
     commit_msg=$(git log -1 --pretty=%B)
     # Read in diff files by newline - https://unix.stackexchange.com/a/628543/280757
-    IFS=$'\n' read -d '' -r -a to_commit <<< $(git diff --name-only HEAD~)
+    IFS=$'\n' read -d '' -r -a to_commit <<< $(git diff --name-only HEAD HEAD~)
     git reset HEAD~ > /dev/null
     git stash
     git pp
